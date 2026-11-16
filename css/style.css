@@ -1,0 +1,1037 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* =========================================
+   WAV_ECAPTURES - MASTER STYLESHEET
+========================================= */
+
+:root {
+  --bg: #101010;
+  --surface: #181818;
+  --text: #f5f0e8;
+  --muted: #aaa39a;
+  --accent: #c6a77b;
+  --border: rgba(255,255,255,0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overscroll-behavior: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================================
+   INTRO SCREEN
+========================================= */
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+.intro-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-bg {
+  position: absolute;
+  width: 100vh;
+  height: 177.78vh;
+  object-fit: cover;
+  transform: rotate(270deg) scale(1.15);
+  filter: blur(35px);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.intro-video {
+  position: relative;
+  width: 100vh;
+  height: 177.78vh;
+  object-fit: cover;
+  transform: rotate(270deg) scale(1.15);
+  background: #000;
+  z-index: 2;
+}
+
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.08);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.skip-intro {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 5;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(36,8,18,0.45);
+  color: #f5ebdd;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 11px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.skip-intro:hover {
+  background: #6e1b3b;
+  border-color: #f5ebdd;
+}
+
+/* =========================================
+   MAIN WEBSITE
+========================================= */
+
+.main-website {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.5s ease;
+}
+
+.main-website.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 88px;
+  padding: 12px 3.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: -5px;
+}
+
+.brand img {
+  width: 180px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.8vw, 25px);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 12px 0;
+  color: #e8e0d5;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 13px 17px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.nav-book-btn:hover {
+  background: var(--accent);
+  color: #111;
+}
+
+/* Hamburger is not used */
+.menu-toggle {
+  display: none !important;
+}
+
+/* =========================================
+   SECTION SWITCHING
+========================================= */
+
+.main-website > section {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding-top: 110px;
+  overflow: hidden;
+}
+
+.main-website > section.active-section {
+  display: flex;
+  flex-direction: column;
+  animation: sectionAppear 0.4s ease both;
+}
+
+@keyframes sectionAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   HOME / HERO
+========================================= */
+
+.main-website > .hero {
+  padding: 140px 10% 70px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.85), rgba(0,0,0,0.15)),
+    url('../assets/baby/baby-01.jpeg') center/cover no-repeat;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.hero h1,
+.about h2,
+.work h2,
+.services h2,
+.contact h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 7vw, 95px);
+  line-height: 1.05;
+  font-weight: 400;
+}
+
+.hero h1 span,
+.about h2 span,
+.work h2 span,
+.services h2 span,
+.contact h2 span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-description {
+  color: #ccc;
+  max-width: 500px;
+  line-height: 1.9;
+  margin: 30px auto;
+  font-size: 14px;
+}
+
+.primary-btn {
+  display: inline-flex;
+  justify-content: center;
+  padding: 17px 25px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background: var(--accent);
+  color: #111;
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  justify-content: space-between;
+  color: #aaa;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.main-website > .about {
+  justify-content: center;
+  align-items: center;
+  padding: 110px 10%;
+  background: var(--surface);
+  text-align: center;
+}
+
+.about h2 {
+  font-size: clamp(42px, 6vw, 75px);
+}
+
+.about-description {
+  color: var(--muted);
+  max-width: 650px;
+  margin: 30px auto 0;
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* =========================================
+   OUR WORK / GALLERY
+========================================= */
+
+.main-website > .work {
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 125px 10% 70px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #181818;
+}
+
+.main-website > .work.active-section {
+  display: block;
+}
+
+.work h2,
+.services h2 {
+  margin-bottom: 70px;
+}
+
+.gallery-category {
+  margin-bottom: 85px;
+}
+
+.category-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.category-heading h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.category-heading span {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.baby-gallery,
+.couple-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: #222;
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+.work::-webkit-scrollbar,
+.services::-webkit-scrollbar {
+  width: 6px;
+}
+
+.work::-webkit-scrollbar-track,
+.services::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+.work::-webkit-scrollbar-thumb,
+.services::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+
+.main-website > .services {
+  display: none;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 125px 10% 70px;
+  background: var(--surface);
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #181818;
+}
+
+.main-website > .services.active-section {
+  display: block;
+}
+
+.service-list {
+  border-top: 1px solid var(--border);
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 70px 1fr 30px;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-item > span {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.service-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.service-note {
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================
+   WEDDING PACKAGES
+========================================= */
+
+.wedding-packages {
+  width: 100%;
+  margin-top: 100px;
+  padding-bottom: 35px;
+}
+
+.pricing-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.pricing-heading h2 {
+  font-size: clamp(42px, 5vw, 65px);
+  margin-bottom: 15px;
+}
+
+.pricing-heading > p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+.package-card {
+  position: relative;
+  min-width: 0;
+  padding: 35px;
+  background: linear-gradient(145deg, #202020, #151515);
+  border: 1px solid rgba(198,167,123,0.25);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.package-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.package-number {
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.package-card h3 {
+  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.package-price {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 22px;
+}
+
+.package-price del {
+  color: #888;
+  font-size: 15px;
+}
+
+.package-price strong {
+  color: var(--accent);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.package-divider {
+  height: 1px;
+  background: rgba(198,167,123,0.25);
+  margin: 25px 0;
+}
+
+.included-label {
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.package-card ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.package-card li {
+  position: relative;
+  color: #d0cbc3;
+  font-size: 12px;
+  line-height: 1.8;
+  padding: 7px 0 7px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.045);
+}
+
+.package-card li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 10px;
+}
+
+.package-btn {
+  display: block;
+  text-align: center;
+  padding: 16px 12px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+
+.package-btn:hover {
+  background: var(--accent);
+  color: #111;
+}
+
+.pricing-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 35px;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.main-website > .contact {
+  justify-content: center;
+  align-items: center;
+  padding: 110px 10%;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 25px;
+}
+
+.contact > p:not(.section-label) {
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+.instagram-link {
+  display: block;
+  margin-top: 35px;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.main-website > .footer {
+  display: none;
+}
+
+.main-website[data-active-section="contact"] > .footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background: #101010;
+}
+
+.footer {
+  padding: 30px 10%;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.footer a {
+  color: var(--accent);
+}
+
+/* =========================================
+   TABLET & MOBILE
+   NAV LINKS ALWAYS VISIBLE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    min-height: 100px;
+    padding: 7px 5% 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  .brand {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand img {
+    width: 130px;
+    height: 48px;
+  }
+
+  /* No hamburger menu */
+  .menu-toggle {
+    display: none !important;
+  }
+
+  /* Keep all navigation links visible */
+  .nav-links {
+    position: static;
+    display: flex !important;
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0;
+    padding: 7px 0 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+  }
+
+  .nav-links a {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 7px 0;
+    font-size: 9px;
+    letter-spacing: 0.6px;
+  }
+
+  .nav-links a::after {
+    bottom: 1px;
+  }
+
+  .nav-book-btn {
+    display: none;
+  }
+
+  .main-website > section {
+    padding-top: 110px;
+  }
+
+  .main-website > .hero {
+    padding: 125px 7% 75px;
+  }
+
+  .main-website > .work {
+    padding: 115px 7% 45px;
+  }
+
+  .main-website > .services {
+    height: 100%;
+    max-height: 100%;
+    padding: 115px 7% 45px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main-website > .about,
+  .main-website > .contact {
+    padding: 110px 7% 75px;
+  }
+
+  .baby-gallery,
+  .couple-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .category-heading h3 {
+    font-size: 24px;
+  }
+
+  .service-item h3 {
+    font-size: 23px;
+  }
+
+  .wedding-packages {
+    margin-top: 65px;
+    padding-bottom: 35px;
+  }
+
+  .package-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .package-card {
+    padding: 27px 22px;
+  }
+
+  .package-price strong {
+    font-size: 42px;
+  }
+
+  .pricing-heading {
+    margin-bottom: 35px;
+  }
+
+  .footer {
+    padding: 15px 7%;
+    font-size: 8px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .skip-intro {
+    right: 20px;
+    bottom: 25px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .intro-screen {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+
+  }
+
+  /* Full-screen blurred background */
+  .video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+    filter: blur(25px);
+    opacity: 0.8;
+    scale: 1.15;
+  }
+
+  /* Original video - no cropping */
+  .intro-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100dvh;
+    height: 100vw;
+    object-fit: fill;
+    transform: translate(-50%, -50%) rotate(270deg);
+    transform-origin: center;
+    background: transparent;
+  }
+
+  .skip-intro {
+    right: 18px;
+    bottom: 20px;
+    z-index: 10;
+  }
+
+  .navbar {
+    min-height: 96px;
+    padding: 5px 4% 3px;
+  }
+
+  .brand img {
+    width: 120px;
+    height: 43px;
+  }
+
+  .nav-links {
+    gap: 5px;
+    padding: 6px 0;
+  }
+
+  .nav-links a {
+    font-size: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .main-website > section {
+    padding-top: 100px;
+  }
+
+  .main-website > .hero {
+    padding: 115px 6% 70px;
+  }
+
+  .hero h1 {
+    font-size: 57px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .hero-bottom {
+    left: 7%;
+    right: 7%;
+    bottom: 20px;
+    font-size: 7px;
+  }
+
+  .main-website > .work {
+    padding: 108px 6% 40px;
+  }
+
+  .main-website > .services {
+    padding: 108px 6% 40px;
+  }
+
+  .main-website > .about,
+  .main-website > .contact {
+    padding: 105px 6% 65px;
+  }
+
+  .section-label,
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .wedding-packages {
+    margin-top: 55px;
+  }
+
+  .pricing-heading h2 {
+    font-size: 42px;
+  }
+
+  .package-card {
+    padding: 25px 20px;
+  }
+
+  .package-card h3 {
+    font-size: 28px;
+  }
+
+  .package-price strong {
+    font-size: 40px;
+  }
+
+  .package-card li {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .brand img {
+    width: 108px;
+    height: 40px;
+  }
+
+  .navbar {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    font-size: 7.5px;
+    letter-spacing: 0;
+  }
+
+  .hero h1 {
+    font-size: 47px;
+  }
+
+  .service-item {
+    grid-template-columns: 40px 1fr 20px;
+  }
+
+  .service-item h3 {
+    font-size: 21px;
+  }
+
+  .package-card {
+    padding: 24px 18px;
+  }
+}

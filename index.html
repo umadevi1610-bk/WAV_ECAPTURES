@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101010" />
+
+  <title>WAV_ECAPTURES | Photography</title>
+
+  <meta
+    name="description"
+    content="WAV_ECAPTURES - Capturing beautiful moments, little smiles and timeless memories."
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- INTRO VIDEO -->
+  <section class="intro-screen" id="introScreen">
+
+    <!-- Blurred Background Video -->
+    <video
+      class="video-bg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="assets/intro.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Main Intro Video -->
+    <video
+      class="intro-video"
+      id="introVideo"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source src="assets/intro.mp4" type="video/mp4" />
+    </video>
+
+    <div class="intro-overlay"></div>
+
+    <button class="skip-intro" id="skipIntro">
+      SKIP INTRO
+    </button>
+
+  </section>
+
+
+  <!-- MAIN WEBSITE -->
+  <main id="mainWebsite" class="main-website">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+      <a href="#home" class="brand">
+  <img src="assets/logo.png" alt="WAV_ECAPTURES Logo">
+</a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Our Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+<a
+  href="https://wa.me/917339038819?text=Hello%20WAV_ECAPTURES!%20I%20would%20like%20to%20book%20a%20photography%20session."
+  class="nav-book-btn"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  BOOK NOW ↗
+</a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <p class="eyebrow">WELCOME TO WAV_ECAPTURES</p>
+
+        <h1>
+          Every Moment<br />
+          Has A <span>Story.</span>
+        </h1>
+
+        <p class="hero-description">
+          Turning precious moments into timeless memories.
+          Let your beautiful story live forever.
+        </p>
+
+        <a href="#work" class="primary-btn">
+          EXPLORE OUR WORK →
+        </a>
+
+      </div>
+
+      <div class="hero-bottom">
+        <span>PHOTOGRAPHY · MEMORIES · EMOTIONS</span>
+        <span>SELECT A SECTION TO EXPLORE ↗</span>
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about section-padding" id="about">
+
+      <p class="section-label">01 — ABOUT US</p>
+
+      <h2>
+        We capture moments<br />
+        that <span>last forever.</span>
+      </h2>
+
+      <p class="about-description">
+        Every photograph tells a story.
+        We believe in capturing genuine emotions,
+        beautiful expressions and unforgettable memories.
+      </p>
+
+    </section>
+
+
+    <!-- OUR WORK -->
+    <section class="work section-padding" id="work">
+
+      <p class="section-label">02 — OUR PORTFOLIO</p>
+
+      <h2>Our <span>Work.</span></h2>
+
+      <!-- BABY GALLERY -->
+      <div class="gallery-category">
+
+        <div class="baby-gallery" id="babyGallery">
+          <!-- Baby images added using JavaScript -->
+        </div>
+      </div>
+      <!-- COUPLE GALLERY -->
+      <div class="gallery-category">
+        <div class="couple-gallery" id="coupleGallery">
+          <!-- Couple images added using JavaScript -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    
+<!-- SERVICES + WEDDING PACKAGES -->
+<section class="services section-padding" id="services">
+
+  <p class="section-label">03 — WHAT WE DO</p>
+
+  <h2>Our <span>Services.</span></h2>
+
+  <div class="service-list">
+
+    <div class="service-item">
+      <span>01</span>
+      <h3>Baby & Kids Photography</h3>
+      <span>→</span>
+    </div>
+
+    <div class="service-item">
+      <span>02</span>
+      <h3>Couple Photography</h3>
+      <span>→</span>
+    </div>
+
+    <div class="service-item">
+      <span>03</span>
+      <h3>Portrait Photography</h3>
+      <span>→</span>
+    </div>
+
+    <div class="service-item">
+      <span>04</span>
+      <h3>Special Moments</h3>
+      <span>→</span>
+    </div>
+
+    <div class="service-item">
+      <span>05</span>
+      <h3>Wedding Photography</h3>
+      <span>→</span>
+    </div>
+
+  </div>
+
+  <!-- WEDDING PACKAGES -->
+
+  <div class="wedding-packages" id="wedding-packages">
+
+    <div class="pricing-heading">
+      <p class="section-label">EXCLUSIVE WEDDING COLLECTION</p>
+      <h2>Wedding <span>Packages.</span></h2>
+      <p>Beautifully capturing every moment of your special day.</p>
+    </div>
+
+    <div class="package-grid">
+
+      <!-- PACKAGE 01 -->
+      <article class="package-card">
+
+        <p class="package-number">PACKAGE 01</p>
+        <h3>Wedding Collection</h3>
+
+        <div class="package-price">
+          <del>₹90,000</del>
+          <strong>₹79,000</strong>
+        </div>
+
+        <div class="package-divider"></div>
+
+        <p class="included-label">PACKAGE INCLUDES</p>
+
+        <ul>
+          <li>Traditional Photography</li>
+          <li>Traditional Videography</li>
+          <li>Candid Photography</li>
+          <li>Candid Videography</li>
+          <li>Pre-Wedding & Post-Wedding Shoot</li>
+          <li>Box Type Wedding Album Kit - 2</li>
+          <li>Wedding Mini Album</li>
+          <li>Wedding Couple Photo Gifts</li>
+          <li>64 GB Pendrive with Box</li>
+          <li>Couple Photo Calendar</li>
+          <li>Complimentary Outdoor Photoshoot</li>
+        </ul>
+
+        <a
+          class="package-btn"
+          href="https://wa.me/917339038819?text=Hello%20WAV_ECAPTURES!%20I%20am%20interested%20in%20Package%2001%20-%20Rs.79000."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK THIS PACKAGE ↗
+        </a>
+
+      </article>
+
+
+      <!-- PACKAGE 02 -->
+      <article class="package-card">
+
+        <p class="package-number">PACKAGE 02</p>
+        <h3>Wedding Essentials</h3>
+
+        <div class="package-price">
+          <del>₹60,000</del>
+          <strong>₹49,000</strong>
+        </div>
+
+        <div class="package-divider"></div>
+
+        <p class="included-label">PACKAGE INCLUDES</p>
+
+        <ul>
+          <li>Traditional Photo</li>
+          <li>Traditional Video</li>
+          <li>Box Type Wedding Album Kit</li>
+          <li>Wedding Mini Album</li>
+          <li>Wedding Couple Photo Gifts</li>
+          <li>64 GB Pendrive with Box</li>
+          <li>Couple Photo Calendar</li>
+          <li>Complimentary Outdoor Photoshoot</li>
+        </ul>
+
+        <a
+          class="package-btn"
+          href="https://wa.me/917339038819?text=Hello%20WAV_ECAPTURES!%20I%20am%20interested%20in%20Package%2002%20-%20Rs.49000."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK THIS PACKAGE ↗
+        </a>
+
+      </article>
+
+
+      <!-- PACKAGE 03 -->
+      <article class="package-card">
+
+        <p class="package-number">PACKAGE 03</p>
+        <h3>Wedding Signature</h3>
+
+        <div class="package-price">
+          <del>₹70,000</del>
+          <strong>₹59,000</strong>
+        </div>
+
+        <div class="package-divider"></div>
+
+        <p class="included-label">PACKAGE INCLUDES</p>
+
+        <ul>
+          <li>Traditional Photography</li>
+          <li>Traditional Videography</li>
+          <li>Candid Photography</li>
+          <li>Get Ready & Post-Wedding Shoot</li>
+          <li>Box Type Wedding Album Kit - 2</li>
+          <li>Wedding Mini Album</li>
+          <li>Wedding Couple Photo Gifts</li>
+          <li>64 GB Pendrive with Box</li>
+          <li>Couple Photo Calendar</li>
+          <li>Complimentary Outdoor Photoshoot</li>
+        </ul>
+
+        <a
+          class="package-btn"
+          href="https://wa.me/917339038819?text=Hello%20WAV_ECAPTURES!%20I%20am%20interested%20in%20Package%2003%20-%20Rs.59000."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK THIS PACKAGE ↗
+        </a>
+
+      </article>
+
+
+      <!-- PACKAGE 04 -->
+      <article class="package-card">
+
+        <p class="package-number">PACKAGE 04</p>
+        <h3>Wedding Premium</h3>
+
+        <div class="package-price">
+          <del>₹1,00,000</del>
+          <strong>₹89,000</strong>
+        </div>
+
+        <div class="package-divider"></div>
+
+        <p class="included-label">PACKAGE INCLUDES</p>
+
+        <ul>
+          <li>Traditional Photography</li>
+          <li>Traditional Videography</li>
+          <li>Candid Photography</li>
+          <li>Candid Videography</li>
+          <li>Helicam</li>
+          <li>Pre-Wedding & Post-Wedding Shoot</li>
+          <li>Box Type Wedding Album Kit - 2</li>
+          <li>Wedding Mini Album</li>
+          <li>Wedding Couple Photo Gifts</li>
+          <li>64 GB Pendrive with Box</li>
+          <li>Couple Photo Calendar</li>
+          <li>Complimentary Outdoor Photoshoot</li>
+        </ul>
+
+        <a
+          class="package-btn"
+          href="https://wa.me/917339038819?text=Hello%20WAV_ECAPTURES!%20I%20am%20interested%20in%20Package%2004%20-%20Rs.89000."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK THIS PACKAGE ↗
+        </a>
+
+      </article>
+
+    </div>
+
+    <p class="pricing-note">
+      For package details and bookings, contact WAV_ECAPTURES.
+    </p>
+
+  </div>
+
+  <p class="service-note">
+    Looking for something special? Contact us for enquiries and bookings.
+  </p>
+
+</section>
+
+    <!-- CONTACT -->
+    <section class="contact section-padding" id="contact">
+
+      <p class="section-label">04 — GET IN TOUCH</p>
+
+      <h2>
+        Let's create<br />
+        something <span>beautiful.</span>
+      </h2>
+
+      <p>Have a special moment to capture? Let's talk.</p>
+
+      <a
+        href="https://wa.me/917339038819"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="primary-btn"
+      >
+        BOOK YOUR SESSION →
+      </a>
+
+      <a
+        href="https://www.instagram.com/Wav_ecaptures/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-link"
+      >
+        FOLLOW US ON INSTAGRAM ↗
+      </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+      <p>© 2026 WAV_ECAPTURES. ALL RIGHTS RESERVED.</p>
+
+      <a href="#home">BACK TO TOP ↑</a>
+
+    </footer>
+
+  </main>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
